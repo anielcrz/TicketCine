@@ -3,6 +3,7 @@
     public class Assento
     {
         public string Identificador { get; set; }
-        public bool Ocupado { get; set;}
+        public bool Ocupado { get; set; }
+        public Sala Sala { get; set; }  
     }
 }
