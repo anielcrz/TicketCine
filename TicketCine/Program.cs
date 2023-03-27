@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using TicketCine.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddEntityFrameworkNpgsql()
+    .AddDbContext<TicketCineContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("TicketCineDB")));
+        
+
 
 var app = builder.Build();
 
