@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using TicketCine.Models;
 
 namespace TicketCine.Data
 {
-    public class TicketCineContext: DbContext
+    public class TicketCineContext: IdentityDbContext
     {
         public TicketCineContext(DbContextOptions<TicketCineContext> options) :
           base(options)
