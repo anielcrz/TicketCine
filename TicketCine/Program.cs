@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using TicketCine.Data;
 using Microsoft.AspNetCore.Identity;
 
@@ -29,6 +28,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.MapRazorPages();
 
 app.UseAuthorization();
 

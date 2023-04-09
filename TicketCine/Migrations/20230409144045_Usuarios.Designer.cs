@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TicketCine.Data;
@@ -11,9 +12,11 @@ using TicketCine.Data;
 namespace TicketCine.Migrations
 {
     [DbContext(typeof(TicketCineContext))]
-    partial class TicketCineContextModelSnapshot : ModelSnapshot
+    [Migration("20230409144045_Usuarios")]
+    partial class Usuarios
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
