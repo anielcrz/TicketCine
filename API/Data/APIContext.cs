@@ -20,5 +20,7 @@ namespace API.Data
         public DbSet<Pagamento>  Pagamentos { get; set; }
         public DbSet<Sala> Salas { get; set; }
         public DbSet<Sessao> Sessoes { get; set; }
+
+       
     }
 }

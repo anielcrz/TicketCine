@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Migrations
 {
     [DbContext(typeof(APIContext))]
-    partial class TicketCineContextModelSnapshot : ModelSnapshot
+    [Migration("20230417014322_filmes_genero")]
+    partial class filmes_genero
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,10 +100,7 @@ namespace API.Migrations
                     b.Property<int>("Duracao")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("GeneroIdGenero")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdGenero")
+                    b.Property<int>("GeneroId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Poster")
@@ -113,7 +113,7 @@ namespace API.Migrations
 
                     b.HasKey("IdFilme");
 
-                    b.HasIndex("GeneroIdGenero");
+                    b.HasIndex("GeneroId");
 
                     b.ToTable("filmes");
                 });
@@ -472,9 +472,13 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Filme", b =>
                 {
-                    b.HasOne("API.Models.Genero", null)
+                    b.HasOne("API.Models.Genero", "Genero")
                         .WithMany("Filmes")
-                        .HasForeignKey("GeneroIdGenero");
+                        .HasForeignKey("GeneroId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Genero");
                 });
 
             modelBuilder.Entity("API.Models.Ingresso", b =>

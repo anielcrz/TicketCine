@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API.Models
@@ -13,7 +14,6 @@ namespace API.Models
         public string Descricao { get; set; }
         public string Poster { get; set; }
         public int Duracao { get; set; }
-        [ForeignKey(nameof(Genero))]
-        public int GeneroId { get; set; }
+        public int? IdGenero { get; set; }
     }
 }

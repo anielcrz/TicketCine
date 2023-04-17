@@ -10,7 +10,7 @@ namespace API.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdIngresso { get; set; }
         public string CodIngresso { get; set; }
-        public Assento Assento { get; set; }
-        public Sessao Sessao { get; set; }  
+        public Assento IdAssento { get; set; }
+        public Sessao IdSessao { get; set; }  
     }
 }

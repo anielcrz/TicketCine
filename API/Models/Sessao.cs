@@ -12,7 +12,7 @@ namespace API.Models
         public DateTime HoraInicio { get; set; }
         public DateTime HoraFim { get; set; }
         public decimal Valor { get; set; }
-        public Filme Filme { get; set; }
-        public Sala Sala { get; set; }  
+        public virtual Filme IdFilme { get; set; }
+        public virtual Sala IdSala { get; set; }  
     }
 }

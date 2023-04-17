@@ -10,6 +10,7 @@ namespace API.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdGenero { get; set; }
         public string Tipo { get; set; }
+        //public ICollection<Filme> Filmes { get; set; }
 
     }
 }
