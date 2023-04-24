@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using API.Models;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -240,11 +242,13 @@ namespace API.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_sessoes_SalaNumero",
                 table: "sessoes",
-                column: "SalaNumero");
+            column: "SalaNumero");
+
+
         }
 
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
+    /// <inheritdoc />
+    protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "ingressos");
